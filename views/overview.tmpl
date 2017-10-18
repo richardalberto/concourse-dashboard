@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>{{.Title}}</title>
+		<link rel="stylesheet" href="/static/css/overview.css">
+		<meta http-equiv="refresh" content="10">
+	</head>
+	<body>
+		<div class="container">
+			{{range .Teams}}
+			<h1>{{.Name}}</h1>
+			<center>
+				{{range .Pipelines}}
+				<a href="http://ci.identity.mia.ucloud.int/teams/main/pipelines/{{.Name}}"><div class="pipeline {{.Status}}">{{.Name}}</div></a>
+				{{end}}
+			</center>
+			{{end}}
+		</div>
+		<div class="footer">Last Updated: <script type="text/javascript">document.write(new Date().toTimeString());</script></div>
+	</body>
+	<div></div>
+</html>

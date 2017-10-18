@@ -1,0 +1,17 @@
+{
+  "concourse": {
+    "url": "http://ci.concourse.ci",
+    "api_path": "/api/v1",
+    "teams": [
+      {
+        "name": "main",
+        "username": "admin",
+        "password": "password"
+      }
+    ]
+  },
+  "user": {
+    "username": "admin",
+    "password": "password"
+  }
+}
