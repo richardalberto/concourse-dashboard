@@ -8,4 +8,4 @@ RUN go-wrapper install
 
 EXPOSE 8080
 
-CMD ["go-wrapper", "run"]
+CMD ["concourse-dashboard"]

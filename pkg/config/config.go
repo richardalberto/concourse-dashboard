@@ -2,9 +2,14 @@ package config
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/spf13/viper"
+)
+
+const (
+	defaultConfigPath = "."
 )
 
 // Config represents the configuration file structure
@@ -33,8 +38,13 @@ type user struct {
 
 // Load configuration file and override with environment variables
 func Load(filename string) *Config {
+	configPath := os.Getenv("CONFIG_PATH")
+	if configPath == "" {
+		configPath = defaultConfigPath
+	}
+
 	viper.SetConfigName(filename)
-	viper.AddConfigPath(".")
+	viper.AddConfigPath(configPath)
 
 	err := viper.ReadInConfig() // Find and read the config file
 	if err != nil {
